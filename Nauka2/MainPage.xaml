@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Nauka2"
+             
+             x:Class="Nauka2.MainPage">
+   
+
+    <StackLayout>
+        <Label x:Name="Label1"
+                Text="To jest Label"
+               BindingContext="{x:Reference FontSlider}"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"
+               
+               />
+        <Button x:Name="NextText" Text="Next"
+                 HorizontalOptions="Center"
+                Background="green"
+                VerticalOptions="CenterAndExpand"
+                Clicked="NextText_Clicked"/>
+
+
+        <Slider BindingContext="{x:Reference Label1}"
+                x:Name="FontSlider"
+                Maximum="60"
+                MinimumTrackColor="Blue"
+                MaximumTrackColor="Gray"
+                ValueChanged="FontSlider_ValueChanged"
+               
+                />
+        <Label BindingContext="{Reference FontSlider}"
+       Text="{Binding Value,StringFormat='Font Size:{0:F0}'}"
+       HorizontalOptions="Center"
+       
+         />
+        <Grid Margin="15,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Background="Blue"></Label>
+            <Label Background="Pink" Grid.Column="1"></Label>
+            <Label Background="Green" Grid.Column="2"></Label>
+            <Label Background="Yellow" Grid.Column="3"></Label>
+            <Label Background="Black" Grid.Column="4"></Label>
+        </Grid>
+
+        <Slider x:Name="ColorSlider"
+                Maximum="4" 
+                MinimumTrackColor="Green"
+                MaximumTrackColor="Gray"
+                ValueChanged="ColorSlider_ValueChanged"
+                 />
+        <Label BindingContext="{Reference ColorSlider}"
+               Text="{Binding Value, StringFormat='Color : {0:F0}'}"
+               HorizontalOptions="Center"/>
+    </StackLayout>
+
+</ContentPage>
